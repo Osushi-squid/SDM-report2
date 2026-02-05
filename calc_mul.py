@@ -2,25 +2,17 @@
 
 import re
                 
-def calc(A,B):
-        ai=str(A)
-        bi=str(B)
-        p = re.compile('\d+(\.\d+)?')
-        if p.match(ai) or p.match(bi):
-                a=float(ai)
-                b=float(bi)
-                if 0<a and a<b and b<1000:
-                        valid=True
-                else:
-                        valid=False
-        else:
-                valid=False
-                
-        if valid:
-                ans=a*b
-                return ans
-        else:
-                return -1
+def calc(ai, bi):
+    # 型チェック（int 以外は即 NG）
+    if not isinstance(ai, int) or not isinstance(bi, int):
+        return -1
+
+    # 範囲チェック
+    if ai < 1 or ai > 999 or bi < 1 or bi > 999:
+        return -1
+
+    return ai * bi
+
         
                 
 def main ():
